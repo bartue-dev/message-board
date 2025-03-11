@@ -1,0 +1,13 @@
+<% messages.forEach(mess=> { %>
+  <li style="border: 1px solid black; margin-bottom: 10px;">
+    <h1>
+      From: <%= mess.user %>
+    </h1>
+    <p> Message: <%= mess.text %>
+    </p>
+    <p> Date: <%= mess.added %>
+    </p>
+
+    <a href="messages/<%= mess.id %>">view more</a>
+  </li>
+  <% }) %>
