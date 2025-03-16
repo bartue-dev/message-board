@@ -17,10 +17,18 @@ textarea {
   margin-bottom: 10px;
 }
 
-.form-title {
+h1 {
   font-size: 1.5rem;
 }
 
 .error {
   text-align: center;
+}
+
+.view-message {
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
