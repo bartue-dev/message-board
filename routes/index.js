@@ -7,6 +7,9 @@ const indexController = require("../controller/indexController.js");
 indexRouter.get("/", indexController.getAllMessages);
 
 //single message
-indexRouter.get("/messages/:id", indexController.getMessage)
+indexRouter.get("/messages/:id", indexController.getMessage);
+
+//delete message
+indexRouter.post("/:id/delete", indexController.deleteMessage)
 
 module.exports = indexRouter
