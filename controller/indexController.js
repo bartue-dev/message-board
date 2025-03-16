@@ -1,19 +1,18 @@
-const db = require("../model/db.js");
+const db = require("../db/queries");
 const asyncHandler = require("express-async-handler");
 
 //all message
 const getAllMessages = asyncHandler(async (req, res) => {
-  const allMessages = await db.getAllMessages();
+  const messages = await db.getAllMessage();
 
-  res.render("index", {messages: allMessages})
+  res.render("index", {
+    messages: messages})
 });
 
 //getSingleMessages
 const getMessage = asyncHandler(async (req, res) => {
   const id = +req.params.id
-  const allMessages  = await db.getAllMessages();
-
-  const message = allMessages.find(message => message.id === id)
+  const message = await db.getMessage(id);
 
   if(!message) {
     res.status(404);
@@ -21,8 +20,20 @@ const getMessage = asyncHandler(async (req, res) => {
     return;
   }
     
+  console.log(message);
+  
   res.render("singleMessage", {message: message})
-
 });
 
-module.exports = {getAllMessages, getMessage}
+const deleteMessage = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  await db.deleteMessage(id);
+  res.redirect("/")
+});
+
+module.exports = {
+  getAllMessages,
+  getMessage,
+  deleteMessage
+  }
