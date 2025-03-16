@@ -1,13 +1,17 @@
 <% messages.forEach(mess=> { %>
   <li style="border: 1px solid black; margin-bottom: 10px;">
     <h1>
-      From: <%= mess.user %>
+      From: <%= mess.username %>
     </h1>
-    <p> Message: <%= mess.text %>
+    <p> Message: <%= mess.message %>
     </p>
-    <p> Date: <%= mess.added %>
+    <p> Date: <%= mess.date.toLocaleDateString() %>
     </p>
 
     <a href="messages/<%= mess.id %>">view more</a>
+
+    <form action="/<%= mess.id %>/delete" method="POST">
+      <button type="submit">Delete</button>
+    </form>
   </li>
   <% }) %>
