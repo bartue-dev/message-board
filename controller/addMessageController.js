@@ -1,4 +1,4 @@
-const db = require("../model/db.js");
+const db = require("../db/queries");
 const asyncHandler = require("express-async-handler");
 
 const addMessageForm = asyncHandler(async (req, res) => {
@@ -6,10 +6,13 @@ const addMessageForm = asyncHandler(async (req, res) => {
 });
 
 const addMessage = asyncHandler(async (req, res) => {
-  const {userName, text} = req.body;
-  db.addNewMessage(text, userName)
+  const {username, message} = req.body;
+  db.createMessage(message, username);
 
   res.redirect("/")
 });
 
-module.exports = {addMessageForm, addMessage}
+module.exports = {
+  addMessageForm, 
+  addMessage
+}
