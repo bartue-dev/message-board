@@ -4,20 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/index.css">
   <title></title>
 </head>
 
-<body>
+<body style="padding: 10px;">
 
-  <p>
-    Name: <%= message.user %>
-  </p>
-  <p>
-    Message: <%= message.text %>
-  </p>
-  <p>
-    Date: <%= message.added %>
-  </p>
+  <div class="view-message">
+    <a href="/">back</a>
+    <h1>
+      Name: <%= message.username %>
+    </h1>
+    <p>
+      Message: <%= message.message %>
+    </p>
+    <p>
+      Date: <%= message.date.toLocaleDateString() %>
+    </p>
+  </div>
 
 </body>
 
