@@ -8,18 +8,18 @@
   <title>Add Message</title>
 </head>
 
-<body>
+<body style="padding: 10px;">
 
   <a href="/">Back</a>
 
   <h1 class="form-title">Add new Data</h1>
 
   <form method="POST" action="/addMessage">
-    <label for="user">Name:</label>
-    <input type="text" id="user" name="userName">
+    <label for="username">Name:</label>
+    <input type="text" id="username" name="username">
 
-    <label for="text">Message:</label>
-    <textarea name="text" id="text"></textarea>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
 
     <button type="submit"> Submit </button>
   </form>
